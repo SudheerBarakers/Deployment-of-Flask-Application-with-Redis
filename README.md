@@ -19,8 +19,8 @@ Steps to be followed:
 Step 1: Creating a new directory and adding the required files
 
 1.1	Create and navigate to the directory redis_flask using the following commands:
-	  mkdir redis_flask 
-    cd redis_flask
+	 	 mkdir redis_flask 
+   	 	cd redis_flask
 
 1.2	Add the code given below to redis_flask/app.py:
     vi app.py
@@ -45,10 +45,10 @@ Step 1: Creating a new directory and adding the required files
 	vi Dockerfile
 
 	FROM python:3.4-alpine
-  ADD . /code
-  WORKDIR /code
-  RUN pip install -r requirements.txt
-  CMD ["python", "app.py"]
+ 	ADD . /code
+  	WORKDIR /code
+  	RUN pip install -r requirements.txt
+  	CMD ["python", "app.py"]
 
  
 1.4	Add the following code to requirements.txt:
@@ -56,17 +56,17 @@ Step 1: Creating a new directory and adding the required files
 	vi requirements.txt
 
 	flask
-  redis
+ 	redis
 
  
 Step 2: Creating and tagging the Flask image
 
 2.1	Create a Flask app image using the following command:
-	  docker build -t flask_image .
+	  	docker build -t flask_image .
 
  
 2.2	Tag the image using the following command:
-    docker tag flask_image:latest <docker-id>/flask-image:flask_image_for_redis
+    		docker tag flask_image:latest <docker-id>/flask-image:flask_image_for_redis
 
  Note: Replace <docker-id> with your docker username
 
@@ -74,12 +74,12 @@ Step 2: Creating and tagging the Flask image
 Step 3: Logging into Docker and pushing the Flask image
 
 3.1	Log into Docker using the following command:
-	    docker login
+	   	 docker login
 
  
 
 3.2	Push the Flask image to the Docker repository:
-	    docker push <docker-id>/flask-image:flask_image_for_redis
+	   	 docker push <docker-id>/flask-image:flask_image_for_redis
 
  
 Step 4: Creating the Redis and Flask deployments
@@ -116,7 +116,7 @@ status: {}
  
 
 4.2	Create the Redis deployment using the following command:
-    kubectl create -f redis.yaml
+   		 kubectl create -f redis.yaml
  
 
 4.3	Add the following code to the flask.yaml file:
@@ -153,7 +153,7 @@ Note: Replace the image repository with yours accordingly.
 
 
 4.4	Create the Flask deployment using the following command:
-	    kubectl create -f flask.yaml
+	    	kubectl create -f flask.yaml
 
 
 Step 5: Creating the Redis and Flask services
@@ -206,14 +206,14 @@ status:
 
  
 5.4	Create the Flask service using the following command:
-    	kubectl create -f flask-svc.yaml
+    		kubectl create -f flask-svc.yaml
 
  
 Step 6: Verifying the Flask application
 
 6.1	Check if the Flask app is working using the following commands:
-	    kubectl get svc
-	    curl 10.107.110.98:5000
+	   	 kubectl get svc
+	   	 curl 10.107.110.98:5000
 
 Note: Use your Flask service cluster IP accordingly
 
