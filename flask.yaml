@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: flask
+  name: flask
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: flask
+    spec:
+      containers:
+      - image: sudheerbaraker/flask-image:flask_image_for_redis
+        name: flask-image
+        resources: {}
+
+
